@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module classes.validator</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="classes.html" class="white">classes</a>.validator</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/claude/mod/IT_412_Week1_Modularizing_csanjakl/week_01_classes_assignment/classes/validator.py">/home/claude/mod/IT_412_Week1_Modularizing_csanjakl/week_01_classes_assignment/classes/validator.py</a></td></tr></table>
+    <p><span class="code">#&nbsp;<a href="#Validator">Validator</a>&nbsp;class&nbsp;and&nbsp;the&nbsp;character&nbsp;rules&nbsp;it&nbsp;uses.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="classes.validator.html#Validator">Validator</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Validator">class <strong>Validator</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Validates&nbsp;names,&nbsp;emails,&nbsp;and&nbsp;ID&nbsp;numbers&nbsp;entered&nbsp;by&nbsp;the&nbsp;user.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Validator-checkEmail"><strong>checkEmail</strong></a>(self, value)</dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;the&nbsp;email&nbsp;is&nbsp;non-empty&nbsp;and&nbsp;has&nbsp;no&nbsp;forbidden&nbsp;characters.</span></dd></dl>
+
+<dl><dt><a name="Validator-checkInstructorID"><strong>checkInstructorID</strong></a>(self, value)</dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;all&nbsp;digits&nbsp;and&nbsp;5&nbsp;digits&nbsp;or&nbsp;less.</span></dd></dl>
+
+<dl><dt><a name="Validator-checkName"><strong>checkName</strong></a>(self, value)</dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;the&nbsp;name&nbsp;is&nbsp;non-empty&nbsp;and&nbsp;has&nbsp;no&nbsp;forbidden&nbsp;characters.</span></dd></dl>
+
+<dl><dt><a name="Validator-checkRequired"><strong>checkRequired</strong></a>(self, value)</dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;blank.</span></dd></dl>
+
+<dl><dt><a name="Validator-checkStudentID"><strong>checkStudentID</strong></a>(self, value)</dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;all&nbsp;digits&nbsp;and&nbsp;7&nbsp;digits&nbsp;or&nbsp;less.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>email_bad</strong> = ['!', '"', "'", '#', '$', '%', '^', '&amp;', '*', '(', ')', '=', '+', ',', '&lt;', '&gt;', '/', '?', ';', ':', ...]<br>
+<strong>name_bad</strong> = ['!', '"', '@', '#', '$', '%', '^', '&amp;', '*', '(', ')', '_', '=', '+', ',', '&lt;', '&gt;', '/', '?', ';', ...]</td></tr></table>
+</body></html>
