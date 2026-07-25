@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module functions.config_manager</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="functions.html" class="white">functions</a>.config_manager</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/claude/week_02_files_and_exceptions_assignment/functions/config_manager.py">/home/claude/week_02_files_and_exceptions_assignment/functions/config_manager.py</a></td></tr></table>
+    <p><span class="code">Configuration&nbsp;logic&nbsp;for&nbsp;the&nbsp;server&nbsp;configuration&nbsp;program.<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;builds&nbsp;and&nbsp;edits&nbsp;the&nbsp;primary&nbsp;configuration&nbsp;and&nbsp;manages&nbsp;the&nbsp;list<br>
+of&nbsp;server&nbsp;configurations.&nbsp;Each&nbsp;server&nbsp;is&nbsp;a&nbsp;dictionary,&nbsp;and&nbsp;the&nbsp;servers&nbsp;are<br>
+held&nbsp;together&nbsp;in&nbsp;a&nbsp;list.&nbsp;File&nbsp;reads&nbsp;and&nbsp;writes&nbsp;are&nbsp;handled&nbsp;by&nbsp;the&nbsp;file_manager<br>
+module&nbsp;so&nbsp;the&nbsp;functions&nbsp;here&nbsp;can&nbsp;focus&nbsp;on&nbsp;the&nbsp;configuration&nbsp;data&nbsp;itself.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="functions.file_manager.html">functions.file_manager</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-add_server"><strong>add_server</strong></a>(primary_config, servers, filepath)</dt><dd><span class="code">Add&nbsp;a&nbsp;server&nbsp;built&nbsp;from&nbsp;the&nbsp;primary&nbsp;configuration.<br>
+&nbsp;<br>
+A&nbsp;copy&nbsp;of&nbsp;the&nbsp;primary&nbsp;configuration&nbsp;is&nbsp;used&nbsp;as&nbsp;the&nbsp;starting&nbsp;point.&nbsp;The<br>
+user&nbsp;is&nbsp;asked&nbsp;whether&nbsp;they&nbsp;want&nbsp;to&nbsp;change&nbsp;any&nbsp;of&nbsp;the&nbsp;values&nbsp;before&nbsp;the<br>
+server&nbsp;is&nbsp;added&nbsp;to&nbsp;the&nbsp;list&nbsp;and&nbsp;the&nbsp;list&nbsp;is&nbsp;saved.&nbsp;The&nbsp;updated&nbsp;list&nbsp;is<br>
+returned.</span></dd></dl>
+ <dl><dt><a name="-delete_server"><strong>delete_server</strong></a>(servers, filepath)</dt><dd><span class="code">Remove&nbsp;a&nbsp;server&nbsp;and&nbsp;all&nbsp;of&nbsp;its&nbsp;data&nbsp;from&nbsp;the&nbsp;list.<br>
+&nbsp;<br>
+The&nbsp;user&nbsp;picks&nbsp;a&nbsp;server&nbsp;and&nbsp;confirms&nbsp;the&nbsp;deletion.&nbsp;The&nbsp;server&nbsp;is&nbsp;removed<br>
+and&nbsp;the&nbsp;list&nbsp;is&nbsp;saved.&nbsp;The&nbsp;updated&nbsp;list&nbsp;is&nbsp;returned.</span></dd></dl>
+ <dl><dt><a name="-load_primary_config"><strong>load_primary_config</strong></a>(filepath)</dt><dd><span class="code">Load&nbsp;the&nbsp;primary&nbsp;configuration,&nbsp;creating&nbsp;it&nbsp;with&nbsp;defaults&nbsp;if&nbsp;missing.<br>
+&nbsp;<br>
+On&nbsp;the&nbsp;first&nbsp;run&nbsp;the&nbsp;file&nbsp;will&nbsp;not&nbsp;exist,&nbsp;so&nbsp;it&nbsp;is&nbsp;created&nbsp;from<br>
+DEFAULT_PRIMARY_CONFIG.&nbsp;The&nbsp;configuration&nbsp;dictionary&nbsp;is&nbsp;returned&nbsp;either<br>
+way&nbsp;so&nbsp;the&nbsp;program&nbsp;always&nbsp;has&nbsp;a&nbsp;base&nbsp;to&nbsp;work&nbsp;from.</span></dd></dl>
+ <dl><dt><a name="-modify_primary_config"><strong>modify_primary_config</strong></a>(primary_config, filepath)</dt><dd><span class="code">Add,&nbsp;change,&nbsp;or&nbsp;delete&nbsp;keys&nbsp;in&nbsp;the&nbsp;primary&nbsp;configuration.<br>
+&nbsp;<br>
+A&nbsp;small&nbsp;menu&nbsp;lets&nbsp;the&nbsp;user&nbsp;add&nbsp;a&nbsp;key/value&nbsp;pair,&nbsp;change&nbsp;a&nbsp;value,&nbsp;delete&nbsp;a<br>
+pair,&nbsp;or&nbsp;save.&nbsp;At&nbsp;least&nbsp;one&nbsp;key/value&nbsp;pair&nbsp;must&nbsp;always&nbsp;remain,&nbsp;so&nbsp;deleting<br>
+the&nbsp;last&nbsp;one&nbsp;is&nbsp;blocked.&nbsp;Changes&nbsp;are&nbsp;only&nbsp;written&nbsp;to&nbsp;disk&nbsp;when&nbsp;the&nbsp;user<br>
+chooses&nbsp;to&nbsp;save.&nbsp;The&nbsp;configuration&nbsp;dictionary&nbsp;is&nbsp;returned.</span></dd></dl>
+ <dl><dt><a name="-modify_server"><strong>modify_server</strong></a>(servers, filepath)</dt><dd><span class="code">Change&nbsp;one&nbsp;value&nbsp;on&nbsp;a&nbsp;server&nbsp;the&nbsp;user&nbsp;picks&nbsp;from&nbsp;the&nbsp;list.<br>
+&nbsp;<br>
+The&nbsp;user&nbsp;chooses&nbsp;a&nbsp;server,&nbsp;then&nbsp;chooses&nbsp;which&nbsp;key&nbsp;to&nbsp;change&nbsp;and&nbsp;enters&nbsp;a<br>
+new&nbsp;value.&nbsp;The&nbsp;list&nbsp;is&nbsp;saved&nbsp;after&nbsp;the&nbsp;change.&nbsp;The&nbsp;list&nbsp;is&nbsp;returned.</span></dd></dl>
+ <dl><dt><a name="-save_servers"><strong>save_servers</strong></a>(servers, filepath)</dt><dd><span class="code">Back&nbsp;up&nbsp;the&nbsp;current&nbsp;server&nbsp;file,&nbsp;then&nbsp;save&nbsp;the&nbsp;server&nbsp;list&nbsp;to&nbsp;it.<br>
+&nbsp;<br>
+The&nbsp;existing&nbsp;file&nbsp;is&nbsp;copied&nbsp;to&nbsp;a&nbsp;backup&nbsp;before&nbsp;it&nbsp;is&nbsp;replaced,&nbsp;which<br>
+covers&nbsp;the&nbsp;requirement&nbsp;to&nbsp;back&nbsp;the&nbsp;file&nbsp;up&nbsp;every&nbsp;time&nbsp;it&nbsp;is&nbsp;overwritten.<br>
+Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;save&nbsp;succeeded.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_PRIMARY_CONFIG</strong> = {'Error Log': 'logs/errors.log', 'Memory': '32MB', 'Safe Mode': 'On'}</td></tr></table>
+</body></html>

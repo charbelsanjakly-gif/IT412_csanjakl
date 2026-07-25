@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module functions.file_manager</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="functions.html" class="white">functions</a>.file_manager</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/claude/week_02_files_and_exceptions_assignment/functions/file_manager.py">/home/claude/week_02_files_and_exceptions_assignment/functions/file_manager.py</a></td></tr></table>
+    <p><span class="code">File-handling&nbsp;helpers&nbsp;for&nbsp;the&nbsp;server&nbsp;configuration&nbsp;program.<br>
+&nbsp;<br>
+Everything&nbsp;that&nbsp;touches&nbsp;the&nbsp;file&nbsp;system&nbsp;lives&nbsp;here:&nbsp;checking&nbsp;whether&nbsp;a&nbsp;file<br>
+exists,&nbsp;reading&nbsp;JSON,&nbsp;writing&nbsp;JSON,&nbsp;and&nbsp;making&nbsp;a&nbsp;backup&nbsp;copy&nbsp;before&nbsp;a&nbsp;file&nbsp;is<br>
+replaced.&nbsp;The&nbsp;rest&nbsp;of&nbsp;the&nbsp;program&nbsp;works&nbsp;with&nbsp;plain&nbsp;dictionaries&nbsp;and&nbsp;lists&nbsp;and<br>
+lets&nbsp;this&nbsp;module&nbsp;deal&nbsp;with&nbsp;the&nbsp;disk.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="shutil.html">shutil</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-backup_file"><strong>backup_file</strong></a>(filepath)</dt><dd><span class="code">Copy&nbsp;filepath&nbsp;to&nbsp;a&nbsp;backup&nbsp;before&nbsp;it&nbsp;gets&nbsp;overwritten.<br>
+&nbsp;<br>
+The&nbsp;backup&nbsp;keeps&nbsp;the&nbsp;same&nbsp;name&nbsp;with&nbsp;'_backup'&nbsp;added&nbsp;before&nbsp;the&nbsp;extension,<br>
+so&nbsp;'server_configs.json'&nbsp;becomes&nbsp;'server_configs_backup.json'.&nbsp;If&nbsp;the&nbsp;file<br>
+does&nbsp;not&nbsp;exist&nbsp;yet&nbsp;there&nbsp;is&nbsp;nothing&nbsp;to&nbsp;copy&nbsp;and&nbsp;the&nbsp;function&nbsp;returns&nbsp;False.</span></dd></dl>
+ <dl><dt><a name="-file_exists"><strong>file_exists</strong></a>(filepath)</dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;filepath&nbsp;points&nbsp;to&nbsp;an&nbsp;existing&nbsp;file.</span></dd></dl>
+ <dl><dt><a name="-load_json"><strong>load_json</strong></a>(filepath)</dt><dd><span class="code">Read&nbsp;a&nbsp;JSON&nbsp;file&nbsp;and&nbsp;return&nbsp;the&nbsp;data&nbsp;it&nbsp;contains.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;parsed&nbsp;dictionary&nbsp;or&nbsp;list&nbsp;on&nbsp;success.&nbsp;If&nbsp;the&nbsp;file&nbsp;is&nbsp;missing,<br>
+is&nbsp;not&nbsp;valid&nbsp;JSON,&nbsp;or&nbsp;cannot&nbsp;be&nbsp;read,&nbsp;a&nbsp;message&nbsp;is&nbsp;shown&nbsp;and&nbsp;None&nbsp;is<br>
+returned&nbsp;so&nbsp;the&nbsp;caller&nbsp;can&nbsp;decide&nbsp;how&nbsp;to&nbsp;recover.</span></dd></dl>
+ <dl><dt><a name="-save_json"><strong>save_json</strong></a>(filepath, data)</dt><dd><span class="code">Write&nbsp;data&nbsp;to&nbsp;filepath&nbsp;as&nbsp;formatted&nbsp;JSON.<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;write&nbsp;succeeded,&nbsp;or&nbsp;False&nbsp;if&nbsp;an&nbsp;operating&nbsp;system<br>
+error&nbsp;stopped&nbsp;the&nbsp;file&nbsp;from&nbsp;being&nbsp;written.</span></dd></dl>
+</td></tr></table>
+</body></html>

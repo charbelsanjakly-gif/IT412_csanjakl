@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module main_program</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">main_program</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/claude/week_02_files_and_exceptions_assignment/main_program.py">/home/claude/week_02_files_and_exceptions_assignment/main_program.py</a></td></tr></table>
+    <p><span class="code">Server&nbsp;Configuration&nbsp;Manager.<br>
+&nbsp;<br>
+Entry&nbsp;point&nbsp;for&nbsp;the&nbsp;program.&nbsp;It&nbsp;loads&nbsp;the&nbsp;primary&nbsp;and&nbsp;server&nbsp;configurations<br>
+and&nbsp;runs&nbsp;the&nbsp;menu&nbsp;loop.&nbsp;The&nbsp;heavy&nbsp;lifting&nbsp;is&nbsp;done&nbsp;by&nbsp;the&nbsp;file_manager&nbsp;and<br>
+config_manager&nbsp;modules,&nbsp;so&nbsp;this&nbsp;file&nbsp;mainly&nbsp;holds&nbsp;the&nbsp;menus&nbsp;and&nbsp;passes&nbsp;the<br>
+user's&nbsp;choice&nbsp;on&nbsp;to&nbsp;the&nbsp;right&nbsp;function.<br>
+&nbsp;<br>
+Before&nbsp;any&nbsp;servers&nbsp;exist&nbsp;the&nbsp;short&nbsp;menu&nbsp;is&nbsp;shown.&nbsp;Once&nbsp;at&nbsp;least&nbsp;one&nbsp;server&nbsp;has<br>
+been&nbsp;added&nbsp;the&nbsp;full&nbsp;menu&nbsp;with&nbsp;all&nbsp;of&nbsp;the&nbsp;options&nbsp;appears.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="functions.config_manager.html">functions.config_manager</a><br>
+</td><td class="multicolumn"><a href="functions.file_manager.html">functions.file_manager</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">Load&nbsp;the&nbsp;configuration&nbsp;files&nbsp;and&nbsp;run&nbsp;the&nbsp;menu&nbsp;loop.</span></dd></dl>
+ <dl><dt><a name="-print_empty_menu"><strong>print_empty_menu</strong></a>()</dt><dd><span class="code">Show&nbsp;the&nbsp;menu&nbsp;used&nbsp;when&nbsp;no&nbsp;servers&nbsp;have&nbsp;been&nbsp;added&nbsp;yet.</span></dd></dl>
+ <dl><dt><a name="-print_full_menu"><strong>print_full_menu</strong></a>()</dt><dd><span class="code">Show&nbsp;the&nbsp;menu&nbsp;used&nbsp;once&nbsp;one&nbsp;or&nbsp;more&nbsp;servers&nbsp;exist.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>PRIMARY_CONFIG_FILE</strong> = 'primary_config.json'<br>
+<strong>SERVER_CONFIG_FILE</strong> = 'server_configs.json'</td></tr></table>
+</body></html>
