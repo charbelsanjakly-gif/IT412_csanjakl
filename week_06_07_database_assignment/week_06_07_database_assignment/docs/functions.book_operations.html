@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module functions.book_operations</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="functions.html" class="white">functions</a>.book_operations</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/claude/project/week_06_07_database_assignment/functions/book_operations.py">/home/claude/project/week_06_07_database_assignment/functions/book_operations.py</a></td></tr></table>
+    <p><span class="code">book_operations&nbsp;module<br>
+&nbsp;<br>
+Contains&nbsp;the&nbsp;functions&nbsp;that&nbsp;back&nbsp;each&nbsp;menu&nbsp;option&nbsp;in&nbsp;the&nbsp;bookstore<br>
+application:&nbsp;showing&nbsp;books,&nbsp;adding&nbsp;a&nbsp;book,&nbsp;recording&nbsp;a&nbsp;sale,&nbsp;editing<br>
+a&nbsp;book,&nbsp;and&nbsp;removing&nbsp;a&nbsp;book.&nbsp;Each&nbsp;function&nbsp;collects&nbsp;and&nbsp;validates<br>
+user&nbsp;input,&nbsp;then&nbsp;talks&nbsp;to&nbsp;the&nbsp;database&nbsp;through&nbsp;a&nbsp;Database&nbsp;object.</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-add_book"><strong>add_book</strong></a>(db)</dt><dd><span class="code">Menu&nbsp;option&nbsp;#2:&nbsp;collect,&nbsp;validate,&nbsp;and&nbsp;insert&nbsp;a&nbsp;new&nbsp;book.</span></dd></dl>
+ <dl><dt><a name="-edit_book"><strong>edit_book</strong></a>(db)</dt><dd><span class="code">Menu&nbsp;option&nbsp;#4:&nbsp;ask&nbsp;which&nbsp;book&nbsp;to&nbsp;edit,&nbsp;then&nbsp;which&nbsp;field,&nbsp;then<br>
+collect&nbsp;and&nbsp;validate&nbsp;the&nbsp;new&nbsp;value&nbsp;for&nbsp;that&nbsp;field.</span></dd></dl>
+ <dl><dt><a name="-get_valid_input"><strong>get_valid_input</strong></a>(prompt, validator)</dt><dd><span class="code">Repeatedly&nbsp;prompt&nbsp;the&nbsp;user&nbsp;until&nbsp;they&nbsp;provide&nbsp;input&nbsp;that&nbsp;passes<br>
+the&nbsp;given&nbsp;validator&nbsp;function,&nbsp;then&nbsp;return&nbsp;that&nbsp;input.</span></dd></dl>
+ <dl><dt><a name="-record_sale"><strong>record_sale</strong></a>(db)</dt><dd><span class="code">Menu&nbsp;option&nbsp;#3:&nbsp;ask&nbsp;which&nbsp;book&nbsp;was&nbsp;sold&nbsp;and&nbsp;how&nbsp;many&nbsp;copies,&nbsp;then<br>
+subtract&nbsp;that&nbsp;quantity&nbsp;from&nbsp;the&nbsp;inventory.&nbsp;Inventory&nbsp;is&nbsp;never<br>
+allowed&nbsp;to&nbsp;go&nbsp;negative.</span></dd></dl>
+ <dl><dt><a name="-remove_book"><strong>remove_book</strong></a>(db)</dt><dd><span class="code">Menu&nbsp;option&nbsp;#5:&nbsp;ask&nbsp;which&nbsp;book&nbsp;to&nbsp;remove,&nbsp;confirm&nbsp;with&nbsp;the&nbsp;user,<br>
+then&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;database.</span></dd></dl>
+ <dl><dt><a name="-show_all_books"><strong>show_all_books</strong></a>(db)</dt><dd><span class="code">Show&nbsp;option&nbsp;#1:&nbsp;print&nbsp;every&nbsp;book&nbsp;in&nbsp;the&nbsp;database,&nbsp;one&nbsp;at&nbsp;a&nbsp;time,<br>
+in&nbsp;an&nbsp;easy-to-read&nbsp;format&nbsp;for&nbsp;non-technical&nbsp;users.</span></dd></dl>
+</td></tr></table>
+</body></html>

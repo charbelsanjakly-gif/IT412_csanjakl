@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module classes.database</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="classes.html" class="white">classes</a>.database</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/claude/project/week_06_07_database_assignment/classes/database.py">/home/claude/project/week_06_07_database_assignment/classes/database.py</a></td></tr></table>
+    <p><span class="code">database&nbsp;module<br>
+&nbsp;<br>
+Contains&nbsp;the&nbsp;<a href="#Database">Database</a>&nbsp;class,&nbsp;which&nbsp;wraps&nbsp;the&nbsp;PyMySQL&nbsp;connection&nbsp;code<br>
+shown&nbsp;in&nbsp;the&nbsp;"Testing&nbsp;Your&nbsp;<a href="#Database">Database</a>&nbsp;Environment"&nbsp;lecture&nbsp;into&nbsp;a<br>
+reusable&nbsp;class.&nbsp;All&nbsp;SQL&nbsp;statements&nbsp;sent&nbsp;through&nbsp;this&nbsp;class&nbsp;follow&nbsp;the<br>
+SELECT&nbsp;/&nbsp;INSERT&nbsp;/&nbsp;UPDATE&nbsp;/&nbsp;DELETE&nbsp;patterns&nbsp;from&nbsp;the&nbsp;SQL&nbsp;Commands<br>
+Reference&nbsp;Guide&nbsp;lecture.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pymysql.html">pymysql</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="classes.database.html#Database">Database</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Database">class <strong>Database</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Database">Database</a>(host,&nbsp;user,&nbsp;password,&nbsp;db,&nbsp;charset='utf8mb4')<br>
+&nbsp;<br>
+Wraps&nbsp;a&nbsp;PyMySQL&nbsp;connection&nbsp;to&nbsp;a&nbsp;MariaDB/MySQL&nbsp;database&nbsp;so&nbsp;the&nbsp;rest<br>
+of&nbsp;the&nbsp;program&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;deal&nbsp;with&nbsp;connection&nbsp;details&nbsp;or<br>
+cursors&nbsp;directly.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Database-__init__"><strong>__init__</strong></a>(self, host, user, password, db, charset='utf8mb4')</dt><dd><span class="code">Open&nbsp;a&nbsp;connection&nbsp;to&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+host&nbsp;--&nbsp;database&nbsp;server&nbsp;host&nbsp;(e.g.&nbsp;'localhost')<br>
+user&nbsp;--&nbsp;database&nbsp;username<br>
+password&nbsp;--&nbsp;database&nbsp;password<br>
+db&nbsp;--&nbsp;name&nbsp;of&nbsp;the&nbsp;database&nbsp;to&nbsp;connect&nbsp;to<br>
+charset&nbsp;--&nbsp;character&nbsp;set&nbsp;to&nbsp;use&nbsp;for&nbsp;the&nbsp;connection</span></dd></dl>
+
+<dl><dt><a name="Database-close"><strong>close</strong></a>(self)</dt><dd><span class="code">Close&nbsp;the&nbsp;database&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="Database-execute"><strong>execute</strong></a>(self, sql, params=None)</dt><dd><span class="code">Run&nbsp;an&nbsp;INSERT,&nbsp;UPDATE,&nbsp;or&nbsp;DELETE&nbsp;statement&nbsp;and&nbsp;commit&nbsp;the<br>
+change.&nbsp;Returns&nbsp;the&nbsp;number&nbsp;of&nbsp;rows&nbsp;affected.<br>
+&nbsp;<br>
+sql&nbsp;--&nbsp;the&nbsp;SQL&nbsp;statement,&nbsp;with&nbsp;%s&nbsp;placeholders&nbsp;for&nbsp;any&nbsp;values<br>
+params&nbsp;--&nbsp;tuple&nbsp;of&nbsp;values&nbsp;to&nbsp;substitute&nbsp;into&nbsp;the&nbsp;placeholders</span></dd></dl>
+
+<dl><dt><a name="Database-fetch_all"><strong>fetch_all</strong></a>(self, sql, params=None)</dt><dd><span class="code">Run&nbsp;a&nbsp;SELECT&nbsp;statement&nbsp;and&nbsp;return&nbsp;every&nbsp;matching&nbsp;row&nbsp;as&nbsp;a<br>
+list&nbsp;of&nbsp;dictionaries&nbsp;(column&nbsp;name&nbsp;-&gt;&nbsp;value).<br>
+&nbsp;<br>
+sql&nbsp;--&nbsp;the&nbsp;SQL&nbsp;statement,&nbsp;with&nbsp;%s&nbsp;placeholders&nbsp;for&nbsp;any&nbsp;values<br>
+params&nbsp;--&nbsp;tuple&nbsp;of&nbsp;values&nbsp;to&nbsp;substitute&nbsp;into&nbsp;the&nbsp;placeholders</span></dd></dl>
+
+<dl><dt><a name="Database-fetch_one"><strong>fetch_one</strong></a>(self, sql, params=None)</dt><dd><span class="code">Run&nbsp;a&nbsp;SELECT&nbsp;statement&nbsp;and&nbsp;return&nbsp;only&nbsp;the&nbsp;first&nbsp;matching&nbsp;row<br>
+as&nbsp;a&nbsp;dictionary,&nbsp;or&nbsp;None&nbsp;if&nbsp;there&nbsp;were&nbsp;no&nbsp;matches.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

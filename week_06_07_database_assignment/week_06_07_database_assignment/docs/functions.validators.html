@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module functions.validators</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="functions.html" class="white">functions</a>.validators</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/claude/project/week_06_07_database_assignment/functions/validators.py">/home/claude/project/week_06_07_database_assignment/functions/validators.py</a></td></tr></table>
+    <p><span class="code">validators&nbsp;module<br>
+&nbsp;<br>
+Validation&nbsp;functions&nbsp;for&nbsp;the&nbsp;bookstore&nbsp;application.&nbsp;Each&nbsp;function<br>
+returns&nbsp;True&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;valid&nbsp;according&nbsp;to&nbsp;the&nbsp;assignment's<br>
+rules,&nbsp;and&nbsp;False&nbsp;otherwise.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="re.html">re</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-validate_author"><strong>validate_author</strong></a>(author)</dt><dd><span class="code">Book&nbsp;author&nbsp;can&nbsp;only&nbsp;contain&nbsp;letters,&nbsp;spaces,&nbsp;commas,&nbsp;periods,<br>
+apostrophes,&nbsp;and&nbsp;hyphens.</span></dd></dl>
+ <dl><dt><a name="-validate_price"><strong>validate_price</strong></a>(price)</dt><dd><span class="code">Pricing&nbsp;information,&nbsp;if&nbsp;provided,&nbsp;must&nbsp;be&nbsp;a&nbsp;valid&nbsp;float.&nbsp;An&nbsp;empty<br>
+string&nbsp;is&nbsp;considered&nbsp;valid&nbsp;for&nbsp;optional&nbsp;price&nbsp;fields&nbsp;(promo<br>
+price)&nbsp;and&nbsp;should&nbsp;be&nbsp;checked&nbsp;for&nbsp;required-ness&nbsp;separately.</span></dd></dl>
+ <dl><dt><a name="-validate_quantity"><strong>validate_quantity</strong></a>(quantity)</dt><dd><span class="code">Quantity&nbsp;on&nbsp;hand&nbsp;must&nbsp;be&nbsp;an&nbsp;integer&nbsp;(as&nbsp;text,&nbsp;digits&nbsp;only).</span></dd></dl>
+ <dl><dt><a name="-validate_required_price"><strong>validate_required_price</strong></a>(price)</dt><dd><span class="code">Retail&nbsp;price&nbsp;is&nbsp;required,&nbsp;so&nbsp;an&nbsp;empty&nbsp;string&nbsp;is&nbsp;not&nbsp;valid.</span></dd></dl>
+ <dl><dt><a name="-validate_signed_edition"><strong>validate_signed_edition</strong></a>(signed)</dt><dd><span class="code">Signed&nbsp;edition&nbsp;can&nbsp;only&nbsp;be&nbsp;'N',&nbsp;'Y',&nbsp;or&nbsp;a&nbsp;blank/empty&nbsp;string<br>
+(case-insensitive&nbsp;on&nbsp;Y/N).</span></dd></dl>
+ <dl><dt><a name="-validate_title"><strong>validate_title</strong></a>(title)</dt><dd><span class="code">Book&nbsp;titles&nbsp;can&nbsp;contain&nbsp;almost&nbsp;anything,&nbsp;but&nbsp;a&nbsp;lone&nbsp;unescaped<br>
+quote&nbsp;character&nbsp;('&nbsp;or&nbsp;")&nbsp;is&nbsp;rejected&nbsp;here&nbsp;so&nbsp;it&nbsp;can&nbsp;never&nbsp;reach<br>
+a&nbsp;raw&nbsp;SQL&nbsp;string&nbsp;and&nbsp;cause&nbsp;problems.&nbsp;Since&nbsp;Database.execute()<br>
+uses&nbsp;parameterized&nbsp;queries,&nbsp;quotes&nbsp;are&nbsp;actually&nbsp;safe&nbsp;to&nbsp;store,<br>
+but&nbsp;per&nbsp;the&nbsp;assignment's&nbsp;warning&nbsp;we&nbsp;still&nbsp;flag&nbsp;titles&nbsp;that&nbsp;are<br>
+empty&nbsp;or&nbsp;contain&nbsp;nothing&nbsp;but&nbsp;whitespace.</span></dd></dl>
+</td></tr></table>
+</body></html>
