@@ -1,9 +1,25 @@
-"""database module - MariaDB connection"""
+"""database module - MariaDB connection and customer management.
+
+This module provides database operations for the IT 412 Final Project,
+handling customer data storage and retrieval from a MariaDB database.
+"""
 import pymysql
 from classes.customer import Customer
 
 class Database:
+    """Database class for managing customer records in MariaDB.
+    
+    Attributes:
+        connection: PyMySQL connection object to the database
+        cursor: Database cursor for executing SQL queries
+    """
+    
     def __init__(self):
+        """Initialize database connection to IT412_final database.
+        
+        Raises:
+            pymysql.Error: If connection to database fails
+        """
         self.connection = pymysql.connect(
             host='localhost',
             user='root',
@@ -13,7 +29,17 @@ class Database:
         self.cursor = self.connection.cursor()
     
     def add_customer(self, customer):
-        """Add a customer to the database"""
+        """Add a customer to the database.
+        
+        Args:
+            customer (Customer): A Customer object with validated fields
+            
+        Returns:
+            None
+            
+        Raises:
+            Exception: If database insert fails
+        """
         try:
             sql = "INSERT INTO customers (first_name, last_name, company_name, address, city, county, state, zip_code, phone1, phone2, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
             self.cursor.execute(sql, (customer.first_name, customer.last_name, customer.company_name, customer.address, customer.city, customer.county, customer.state, customer.zip_code, customer.phone1, customer.phone2, customer.email))
@@ -22,7 +48,14 @@ class Database:
             print(f"Error adding customer: {e}")
     
     def get_all_customers(self):
-        """Get all customers from database"""
+        """Retrieve all customers from the database.
+        
+        Returns:
+            list: List of Customer objects, empty list if none exist
+            
+        Raises:
+            Exception: If database query fails
+        """
         try:
             sql = "SELECT * FROM customers"
             self.cursor.execute(sql)
@@ -37,14 +70,32 @@ class Database:
             return []
     
     def get_customer_by_index(self, index):
-        """Get a customer by index"""
+        """Retrieve a single customer by list index.
+        
+        Args:
+            index (int): The position in the customer list
+            
+        Returns:
+            Customer: Customer object if found, None otherwise
+        """
         customers = self.get_all_customers()
         if 0 <= index < len(customers):
             return customers[index]
         return None
     
     def update_customer(self, index, customer):
-        """Update a customer"""
+        """Update an existing customer record.
+        
+        Args:
+            index (int): The position of the customer to update
+            customer (Customer): Updated Customer object
+            
+        Returns:
+            None
+            
+        Raises:
+            Exception: If database update fails
+        """
         customers = self.get_all_customers()
         if 0 <= index < len(customers):
             old_customer = customers[index]
@@ -53,7 +104,17 @@ class Database:
             self.connection.commit()
     
     def delete_customer(self, index):
-        """Delete a customer"""
+        """Delete a customer from the database.
+        
+        Args:
+            index (int): The position of the customer to delete
+            
+        Returns:
+            None
+            
+        Raises:
+            Exception: If database delete fails
+        """
         customers = self.get_all_customers()
         if 0 <= index < len(customers):
             customer = customers[index]
@@ -62,7 +123,14 @@ class Database:
             self.connection.commit()
     
     def clear_all(self):
-        """Clear all customers from database"""
+        """Clear all customers from the database.
+        
+        Returns:
+            None
+            
+        Raises:
+            Exception: If database clear fails
+        """
         try:
             sql = "DELETE FROM customers"
             self.cursor.execute(sql)
@@ -71,7 +139,14 @@ class Database:
             print(f"Error clearing customers: {e}")
     
     def get_customer_count(self):
-        """Get total customer count"""
+        """Get total number of customers in database.
+        
+        Returns:
+            int: Number of customers, 0 if error
+            
+        Raises:
+            Exception: If database query fails
+        """
         try:
             sql = "SELECT COUNT(*) FROM customers"
             self.cursor.execute(sql)
@@ -82,5 +157,9 @@ class Database:
             return 0
     
     def close(self):
-        """Close database connection"""
+        """Close the database connection.
+        
+        Returns:
+            None
+        """
         self.connection.close()
