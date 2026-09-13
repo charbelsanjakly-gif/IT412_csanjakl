@@ -1,38 +1,41 @@
+"""customer module - Customer class with validation methods.
+
+This module defines the Customer class for the IT 412 Final Project,
+providing data validation for all customer fields.
 """
-customer module
-
-Contains the Customer class which represents a single customer record
-with validation for all fields.
-"""
-
-import re
-
 
 class Customer:
+    """Customer class representing a customer record.
+    
+    Attributes:
+        first_name (str): Customer's first name
+        last_name (str): Customer's last name
+        company_name (str): Customer's company
+        address (str): Customer's street address
+        city (str): Customer's city
+        county (str): Customer's county
+        state (str): Customer's state (2-letter code)
+        zip_code (str): Customer's zip code
+        phone1 (str): Primary phone number
+        phone2 (str): Secondary phone number
+        email (str): Customer's email address
     """
-    Represents a customer record with validated fields.
-
-    A customer contains first name, last name, company, address, city,
-    county, state, zip, phone numbers, and email.
-    """
-
-    def __init__(self, first_name, last_name, company_name, address,
-                 city, county, state, zip_code, phone1, phone2, email):
-        """
-        Initialize a Customer with provided data.
-
+    
+    def __init__(self, first_name, last_name, company_name, address, city, county, state, zip_code, phone1, phone2, email):
+        """Initialize a Customer object.
+        
         Args:
-            first_name -- customer first name
-            last_name -- customer last name
-            company_name -- customer company name
-            address -- street address
-            city -- city name
-            county -- county name
-            state -- two-letter state abbreviation
-            zip_code -- zip or postal code
-            phone1 -- primary phone number
-            phone2 -- secondary phone number
-            email -- email address
+            first_name (str): Customer's first name
+            last_name (str): Customer's last name
+            company_name (str): Customer's company name
+            address (str): Customer's street address
+            city (str): Customer's city
+            county (str): Customer's county
+            state (str): Customer's state (2-letter code)
+            zip_code (str): Customer's zip code
+            phone1 (str): Primary phone number
+            phone2 (str): Secondary phone number
+            email (str): Customer's email address
         """
         self.first_name = first_name
         self.last_name = last_name
@@ -45,95 +48,110 @@ class Customer:
         self.phone1 = phone1
         self.phone2 = phone2
         self.email = email
-
+    
     def is_valid_name(self, name):
-        """
-        Validate that a name contains only letters, spaces, apostrophes, and dashes.
-
+        """Validate a name field (first or last name).
+        
+        Valid characters: letters, spaces, apostrophes, and hyphens.
+        
         Args:
-            name -- the name string to validate
-
+            name (str): The name to validate
+            
         Returns:
-            True if valid, False otherwise
+            bool: True if name is valid, False otherwise
         """
-        pattern = r"^[a-zA-Z' -]+$"
-        return bool(re.match(pattern, name))
-
+        if not name or len(name) == 0:
+            return False
+        for char in name:
+            if not (char.isalpha() or char in " '-"):
+                return False
+        return True
+    
     def is_valid_phone(self, phone):
-        """
-        Validate phone number format.
-
-        Phone must be either 10 digits or 12 characters (with dashes/periods).
-
+        """Validate a phone number.
+        
+        Valid formats: 10 digits (1234567890) or 12 characters with dashes/periods (123-456-7890 or 123.456.7890).
+        
         Args:
-            phone -- the phone number string to validate
-
+            phone (str): The phone number to validate
+            
         Returns:
-            True if valid, False otherwise
+            bool: True if phone is valid, False otherwise
         """
         if not phone:
+            return False
+        digits = ''.join(c for c in phone if c.isdigit())
+        if len(digits) == 10:
             return True
-        if len(phone) == 10 and phone.isdigit():
-            return True
-        if len(phone) == 12:
-            pattern = r"^[0-9.\-]+$"
-            return bool(re.match(pattern, phone))
+        if len(phone) == 12 and (phone.count('-') == 2 or phone.count('.') == 2):
+            return len(digits) == 10
         return False
-
+    
     def is_valid_email(self, email):
-        """
-        Validate email address format.
-
+        """Validate an email address.
+        
+        Valid characters: alphanumeric, dots, hyphens, underscores, and @ symbol.
+        Must contain exactly one @ symbol and at least one dot after it.
+        
         Args:
-            email -- the email string to validate
-
+            email (str): The email to validate
+            
         Returns:
-            True if valid, False otherwise
+            bool: True if email is valid, False otherwise
         """
-        if not email:
-            return True
-        pattern = r"^[a-zA-Z0-9._+@-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-        return bool(re.match(pattern, email))
-
+        if not email or '@' not in email:
+            return False
+        if email.count('@') != 1:
+            return False
+        local, domain = email.split('@')
+        if not local or not domain or '.' not in domain:
+            return False
+        valid_chars = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_@+')
+        return all(c in valid_chars for c in email)
+    
     def is_valid_state(self, state):
-        """
-        Validate that state is a valid US state abbreviation.
-
+        """Validate a US state code.
+        
+        Valid state codes are 2-letter uppercase codes (e.g., MI, CA, NY).
+        
         Args:
-            state -- the state abbreviation to validate
-
+            state (str): The state code to validate
+            
         Returns:
-            True if valid, False otherwise
+            bool: True if state code is valid, False otherwise
         """
-        valid_states = [
-            'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
-            'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
-            'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
-            'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
-            'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY', 'DC'
-        ]
-        return state.upper() in valid_states
-
+        valid_states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
+        return state in valid_states
+    
     def is_valid_zip(self, zip_code):
-        """
-        Validate that zip code is 4-5 digits.
-
+        """Validate a zip code.
+        
+        Valid formats: 4 or 5 digits (9876 or 48201).
+        
         Args:
-            zip_code -- the zip code to validate
-
+            zip_code (str): The zip code to validate
+            
         Returns:
-            True if valid, False otherwise
+            bool: True if zip code is valid, False otherwise
         """
         if not zip_code:
-            return True
-        return len(zip_code) in [4, 5] and zip_code.isdigit()
-
+            return False
+        if not zip_code.isdigit():
+            return False
+        return len(zip_code) in [4, 5]
+    
     def __str__(self):
-        """Return a formatted string representation of the customer."""
-        return (f"{self.first_name} {self.last_name} | "
-                f"{self.company_name} | {self.city}, {self.state}")
-
+        """Return string representation of customer.
+        
+        Returns:
+            str: Formatted customer information
+        """
+        return f"{self.first_name} {self.last_name} - {self.email}"
+    
     def __repr__(self):
-        """Return a detailed representation of the customer."""
-        return (f"Customer('{self.first_name}', '{self.last_name}', "
-                f"'{self.company_name}', '{self.email}')")
+        """Return detailed string representation of customer.
+        
+        Returns:
+            str: Detailed customer information
+        """
+        return f"Customer('{self.first_name}', '{self.last_name}', '{self.company_name}', '{self.address}', '{self.city}', '{self.county}', '{self.state}', '{self.zip_code}', '{self.phone1}', '{self.phone2}', '{self.email}')"
